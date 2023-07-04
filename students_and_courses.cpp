@@ -1,20 +1,38 @@
-// students_and_courses.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#include "Student.h"
 #include <iostream>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Student student1("Mohammad");
+    Student student2("Ali");
+    Student student3("Zahra");
+
+    Course course1("Introduction to Programming");
+    Course course2("Data Structures");
+    Course course3("Introduction to Algorithm");
+
+    course1.enrollStudent(&student1);
+    course1.enrollStudent(&student2);
+    course2.enrollStudent(&student2);
+    course2.enrollStudent(&student3);
+    course3.enrollStudent(&student1);
+    course3.enrollStudent(&student3);
+
+    student1.enrollCourse(&course1);
+    student1.enrollCourse(&course3);
+    student3.enrollCourse(&course3);
+    student3.enrollCourse(&course2);
+    student2.enrollCourse(&course1);
+    student2.enrollCourse(&course2);
+
+
+    student1.displayCourses();
+    student2.displayCourses();
+    student3.displayCourses();
+
+    course1.displayStudents();
+    course2.displayStudents();
+    course3.displayStudents();
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
